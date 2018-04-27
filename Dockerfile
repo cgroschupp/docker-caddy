@@ -32,6 +32,7 @@ RUN apk --no-cache add libcap \
 EXPOSE 80 443
 
 USER caddy
+VOLUME /etc/caddy/ssl
 
 ENTRYPOINT ["/usr/bin/caddy"]
 
