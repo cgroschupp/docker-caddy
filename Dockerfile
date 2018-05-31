@@ -25,7 +25,8 @@ COPY --from=builder /go/src/github.com/mholt/caddy/caddy/caddy /usr/bin/caddy
 RUN apk --no-cache add libcap ca-certificates \
  && setcap cap_net_bind_service=+ep /usr/bin/caddy \
  && adduser -D -H caddy \
- && mkdir -p /etc/caddy/ssl
+ && mkdir -p /etc/caddy/ssl \
+ && chown caddy /etc/caddy/ssl
 
 EXPOSE 80 443
 
