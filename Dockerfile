@@ -14,8 +14,6 @@ RUN cd /go/src/github.com/mholt/caddy/caddy \
   && git checkout -f \
   && go run build.go
 
-RUN ls -al /go/src/github.com/mholt/caddy/caddy/caddy
-
 FROM alpine:3.7
 
 ENV CADDYPATH /etc/caddy/ssl
