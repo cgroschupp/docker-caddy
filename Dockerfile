@@ -1,6 +1,6 @@
 FROM golang:alpine3.7 as builder
 
-ARG version="0.10.14"
+ARG version="0.11.0"
 
 RUN apk --no-cache add git
 
@@ -19,7 +19,7 @@ RUN ls -al /go/src/github.com/mholt/caddy/caddy/caddy
 FROM alpine:3.7
 
 ENV CADDYPATH /etc/caddy/ssl
-LABEL caddy_version="0.10.14"
+LABEL caddy_version="0.11.0"
 
 ADD Caddyfile /etc/
 COPY --from=builder /go/src/github.com/mholt/caddy/caddy/caddy /usr/bin/caddy
