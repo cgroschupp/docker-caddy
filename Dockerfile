@@ -24,7 +24,7 @@ LABEL caddy_version="0.10.14"
 ADD Caddyfile /etc/
 COPY --from=builder /go/src/github.com/mholt/caddy/caddy/caddy /usr/bin/caddy
 
-RUN apk --no-cache add libcap \
+RUN apk --no-cache add libcap ca-certificates \
  && setcap cap_net_bind_service=+ep /usr/bin/caddy \
  && adduser -D -H caddy \
  && mkdir -p /etc/caddy/ssl
