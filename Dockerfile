@@ -7,8 +7,13 @@ RUN apk --no-cache add git
 RUN go get -d github.com/mholt/caddy/caddy
 RUN go get -d github.com/caddyserver/builds
 
+RUN go get -d github.com/freman/caddy-reauth
+
 RUN cd /go/src/github.com/mholt/caddy \
   && git checkout "v${version}"
+
+# Include plugins
+RUN printf "package caddyhttp\nimport _ \"github.com/freman/caddy-reauth\"" > /go/src/github.com/mholt/caddy/caddyhttp/reauth.go
 
 RUN cd /go/src/github.com/mholt/caddy/caddy \
   && git checkout -f \
