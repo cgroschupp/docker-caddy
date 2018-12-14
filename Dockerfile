@@ -1,6 +1,6 @@
 FROM golang:alpine3.7 as builder
 
-ARG version="0.11.0"
+ARG version="0.11.1"
 
 RUN apk --no-cache add git
 
